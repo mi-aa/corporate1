@@ -85,7 +85,7 @@ main {
 }
 
 .animate.delay-2 {
-  transition-delay: 1.0s;
+  transition-delay: 1.2s;
 }
 
 .animate.delay-3 {
@@ -148,6 +148,84 @@ main {
 #header .logo a {
   display: block;
 }
+#header .contact {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/*
+  pc-menu
+-------------------------------------------*/
+.pc-menu {
+  display: block;
+}
+/*
+  sp-menu
+-------------------------------------------*/
+.sp-menu {
+  display: none;
+}
+.sp-menu #open {
+  font-size: 2rem;
+  cursor: pointer;
+}
+.sp-menu #open.hide {
+  display: none;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  padding: 64px;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s;
+}
+.overlay li {
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .3s, transform .3s;
+}
+.overlay.show li {
+  opacity: 1;
+  transform: none;
+}
+.overlay.show li:nth-child(1) {
+  transition-delay: .1s;
+}
+.overlay.show li:nth-child(2) {
+  transition-delay: .2s;
+}
+.overlay.show li:nth-child(3) {
+  transition-delay: .3s;
+}
+.overlay.show li:nth-child(4) {
+  transition-delay: .4s;
+}
+.overlay li a {
+  text-decoration: underline;
+}
+.overlay li a:hover {
+  text-decoration: none;
+}
+.overlay #close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 #header .container {
   display: flex;
   align-items: center;
@@ -186,7 +264,7 @@ main {
   #hero
 -------------------------------------------*/
 #hero {
-  margin-bottom: 120px;
+  /* margin-bottom: 120px; */
   height: calc(100vh - 80px);
   padding-top: 80px;
 }
@@ -205,7 +283,7 @@ main {
   #news
 -------------------------------------------*/
 #news {
-  margin-bottom: 120px;
+  padding-top: 120px;
 }
 #news ul.list{
   display: flex;
@@ -242,7 +320,8 @@ main {
 -------------------------------------------*/
 #about {
   display: flex;
-  margin-bottom: 130px;
+  margin-top: 40px;;
+  padding-top: 80px;
   overflow: hidden;
 }
 #about .img-area {
@@ -265,7 +344,7 @@ main {
   #business
 -------------------------------------------*/
 #business {
-  margin-bottom: 120px;
+  padding-top: 120px;
   overflow: hidden;
 }
 #business .container {
@@ -327,6 +406,7 @@ main {
 -------------------------------------------*/
 #company {
   position: relative;
+  margin-top: 120px;
   margin-bottom: 110px;
   height: 640px;
   overflow: hidden;
@@ -409,20 +489,8 @@ main {
 -------------------------------------------*/
 @media screen and (max-width: 900px) {
   /*-------------------------------------------
-  Common
-  -------------------------------------------*/
-  .logo {
-    width: 80px;
-    margin-top: 15px;
-    margin-bottom: 12px;
-  }
-  /*-------------------------------------------
   header
   -------------------------------------------*/
-
-  #header a.contact {
-    display: none;
-  }
   .section-title {
     margin-bottom: 25px;
   }
@@ -447,16 +515,13 @@ main {
     transition-delay: 0s;
   }
 
-
-/*-------------------------------------------
-ヘッダー
--------------------------------------------*/
 	#header .container {
     flex-direction: column;
     align-items: flex-start;
   }
   #header .logo {
-    width: 40%;
+    margin-top: 15px;
+    margin-bottom: 12px;
   }
   #header .inner ul {
     margin-top:12px;
@@ -468,17 +533,23 @@ main {
   #header .contact {
     display: none;
   }
-/*-------------------------------------------
-  #hero
--------------------------------------------*/
-#hero {
-  margin-bottom: 90px;
-}
+  /*
+    pc-menu
+  -------------------------------------------*/
+  .pc-menu {
+    display: none;
+  }
+  /*
+    sp-menu
+  -------------------------------------------*/
+  .sp-menu {
+    display: block;
+  }
 /*-------------------------------------------
   #news
 -------------------------------------------*/
   #news {
-    margin-bottom: 100px;
+    padding-top: 90px;
   }
   #news ul.list{
     flex-direction: column;
@@ -497,7 +568,7 @@ main {
   -------------------------------------------*/
   #about {
     flex-direction: column;
-    margin-bottom: 100px;
+    padding-top: 80px;
   }
   #about .img-area {
     width: 100%;
@@ -518,7 +589,7 @@ main {
     #business
   -------------------------------------------*/
   #business {
-    margin-bottom: 80px;
+    padding-top: 100px;
   }
   #business .container {
     flex-direction: column;
@@ -566,10 +637,11 @@ main {
     position: static;
     flex-direction: column;
     height: auto;
+    margin-top: 80px;
     margin-bottom: 30px;
   }
   #company .section-title {
-    padding-top: 50px;
+    padding-top: 80px;
     margin-bottom: 25px;
   }
   #company .text-area {
